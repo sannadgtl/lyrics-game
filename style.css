@@ -1,0 +1,9 @@
+.title {
+    position: relative;
+}
+
+.score {
+    position: absolute;
+    right: 0;
+    top: 0;  
+}
