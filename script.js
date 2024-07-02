@@ -10,15 +10,15 @@ const answerComment = document.querySelector(".comment");
 let lyrics = [
   {
     lyric: "test1",
-    artist: "taylor-swift",
+    album: "taylor-swift",
   },
   {
     lyric: "test2",
-    artist: "girls-generation",
+    album: "girls-generation",
   },
   {
     lyric: "test3",
-    artist: "dreamcatcher",
+    album: "dreamcatcher",
   },
 ];
 
@@ -35,7 +35,7 @@ answerBtns.forEach((btn) => {
 });
 
 checkBtn.addEventListener("click", function () {
-  if (selectedAnswer === lyrics[i].artist) {
+  if (selectedAnswer === lyrics[i].album) {
     scores += 1;
     totalScore.textContent = scores;
     console.log(scores);
