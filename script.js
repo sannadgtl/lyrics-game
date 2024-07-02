@@ -45,8 +45,8 @@ let lyrics = [
   },
   {
     lyric: "What died didn't stay dead",
-    album: "marjorie",
-    song: "evermore",
+    album: "evermore",
+    song: "marjorie",
   },
   {
     lyric: "Dive bar on the East Side, where you at?",
