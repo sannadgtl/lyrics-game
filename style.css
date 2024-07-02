@@ -4,10 +4,29 @@
 
 .score {
     position: absolute;
-    right: 0;
-    top: 0;  
+    right: 1%;
+    top: 25%;  
+    padding-inline: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: aquamarine;
+    z-index: -1;
 }
 
 .hidden {
     display: none;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.btn-row {
+    padding-block: 1rem; 
+}
+
+.btn-container {
+    padding: 1rem; 
+    border: 2px solid black;
+    margin-inline: 0.5rem;
 }

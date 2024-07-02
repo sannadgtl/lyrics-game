@@ -10,15 +10,15 @@ const answerComment = document.querySelector(".comment");
 let lyrics = [
   {
     lyric: "test1",
-    album: "taylor-swift",
+    album: "debut",
   },
   {
     lyric: "test2",
-    album: "girls-generation",
+    album: "ttpd",
   },
   {
     lyric: "test3",
-    album: "dreamcatcher",
+    album: "midnights",
   },
 ];
 
