@@ -30,7 +30,12 @@ h1 {
 .btn-container {
   padding: 1rem;
   border: 2px solid black;
+  border-radius: 0.5rem;
   margin-inline: 0.5rem;
+}
+
+.answer {
+    margin-right: 0.5rem; 
 }
 
 /* individual answer btns */
