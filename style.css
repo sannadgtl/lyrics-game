@@ -1,32 +1,82 @@
-.title {
-    position: relative;
-}
-
-.score {
-    position: absolute;
-    right: 1%;
-    top: 25%;  
-    padding-inline: 1rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    background-color: aquamarine;
-    z-index: -1;
-}
-
 .hidden {
-    display: none;
+  display: none;
 }
 
 h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
+/* title + score total */
+.title {
+  position: relative;
+}
+
+.score {
+  position: absolute;
+  right: 1%;
+  top: 25%;
+  padding-inline: 1rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  background-color: aquamarine;
+  z-index: -1;
+}
+
+/* answer btns */
 .btn-row {
-    padding-block: 1rem; 
+  padding-block: 1rem;
 }
 
 .btn-container {
-    padding: 1rem; 
-    border: 2px solid black;
-    margin-inline: 0.5rem;
+  padding: 1rem;
+  border: 2px solid black;
+  margin-inline: 0.5rem;
+}
+
+/* individual answer btns */
+.debut-container {
+  background-color: #a5c9a5;
+}
+
+.fearless-container {
+  background-color: #efc180;
+}
+
+.speak-now-container {
+  background-color: #c7a8cb;
+}
+
+.red-container {
+  background-color: #7a2e39;
+  color: white;
+}
+
+.container-1989 {
+    background-color: #b5e5f8;
+}
+
+.rep-container {
+    background-color: #746f70;
+    color: white;
+}
+
+.lover-container {
+    background-color: #f7b0cc;
+}
+
+.folklore-container {
+    background-color: #cdc9c1;
+}
+
+.evermore-container {
+    background-color: #c5ac90;
+}
+
+.midnights-container {
+    background-color: #242e47;
+    color: white;
+}
+
+.ttpd-container {
+    background-color: #a79e8f;
 }
