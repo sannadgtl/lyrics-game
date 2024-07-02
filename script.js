@@ -10,15 +10,15 @@ const answerComment = document.querySelector(".comment");
 let lyrics = [
   {
     lyric: "test1",
-    artist: "1",
+    artist: "taylor-swift",
   },
   {
     lyric: "test2",
-    artist: "2",
+    artist: "girls-generation",
   },
   {
     lyric: "test3",
-    artist: "3",
+    artist: "dreamcatcher",
   },
 ];
 
@@ -43,6 +43,11 @@ checkBtn.addEventListener("click", function () {
   } else {
     answerComment.textContent = "wrong answer";
   }
+
+  //   prevent answer changing
+  answerBtns.forEach((btn) => {
+    btn.disabled = true;
+  });
 });
 
 nextBtn.addEventListener("click", function () {
@@ -50,10 +55,13 @@ nextBtn.addEventListener("click", function () {
   if (i < lyrics.length) {
     lyric.textContent = lyrics[i].lyric;
     selectedAnswer = undefined;
+    answerComment.textContent = "";
     answerBtns.forEach((btn) => {
       btn.checked = false;
+      btn.disabled = false;
     });
   } else {
     lyric.textContent = "game over";
+    // create restart button add to HTML as well
   }
 });
