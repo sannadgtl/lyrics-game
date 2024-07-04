@@ -38,6 +38,12 @@ h1 {
   margin-right: 0.5rem;
 }
 
+/* for answer btns group */
+.overlay {
+  background-color: white;
+  opacity: 50%;
+}
+
 /* individual answer btns */
 .debut-container {
   background-color: #a5c9a5;

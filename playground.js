@@ -89,7 +89,7 @@ let lyrics = [
 
 // starting conditions
 let scores = 0;
-let i = 14;
+let i = 13;
 let selectedAnswer;
 lyric.textContent = lyrics[i].lyric;
 
@@ -119,6 +119,7 @@ checkBtn.addEventListener("click", function () {
   // prevent answer changing
   answerBtns.forEach((btn) => {
     btn.disabled = true;
+    answerGroup.classList.add("overlay");
   });
   // shown next btn
   checkBtn.classList.add("hidden");
@@ -127,6 +128,10 @@ checkBtn.addEventListener("click", function () {
 
 nextBtn.addEventListener("click", function () {
   i++;
+  if (i === lyrics.length - 1) {
+    nextBtn.textContent = "View Results 👀";
+  }
+  console.log("view");
   if (i < lyrics.length) {
     lyric.textContent = lyrics[i].lyric;
     selectedAnswer = undefined;
@@ -137,8 +142,9 @@ nextBtn.addEventListener("click", function () {
     });
     checkBtn.classList.remove("hidden");
     nextBtn.classList.add("hidden");
+    answerGroup.classList.remove("overlay");
   } else {
-    lyric.textContent = "game over";
+    lyric.textContent = "Game Over";
     answerGroup.classList.add("hidden");
     nextBtn.classList.add("hidden");
     restartBtn.classList.remove("hidden");
@@ -147,13 +153,14 @@ nextBtn.addEventListener("click", function () {
 });
 
 restartBtn.addEventListener("click", function () {
-  i = 14;
+  i = 13;
   scores = 0;
   totalScore.textContent = scores;
   console.log(scores);
   lyric.textContent = lyrics[i].lyric;
   selectedAnswer = undefined;
   answerGroup.classList.remove("hidden");
+  answerGroup.classList.remove("overlay");
   checkBtn.classList.remove("hidden");
   nextBtn.classList.add("hidden");
   restartBtn.classList.add("hidden");
