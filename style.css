@@ -22,6 +22,17 @@ h1 {
   z-index: -1;
 }
 
+/* lyrics section */
+@media (max-width: 767px) {
+  .lyrics-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: white;
+    padding-block: 1rem;
+  }
+}
+
 /* answer btns */
 .btn-row {
   padding-block: 1rem;
@@ -108,3 +119,5 @@ h1 {
 .restart-btn:hover {
   background-color: rgb(255, 218, 218);
 }
+
+
