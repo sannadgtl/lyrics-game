@@ -89,14 +89,13 @@ let lyrics = [
 
 // starting conditions
 let scores = 0;
-let i = 13;
+let i = 0;
 let selectedAnswer;
 lyric.textContent = lyrics[i].lyric;
 
 answerBtns.forEach((btn) => {
   btn.addEventListener("change", function () {
     selectedAnswer = btn.value;
-    // console.log(selectedAnswer);
   });
 });
 
@@ -110,7 +109,6 @@ checkBtn.addEventListener("click", function () {
   if (selectedAnswer === lyrics[i].album) {
     scores += 1;
     totalScore.textContent = scores;
-    // console.log(scores);
     answerComment.textContent = "Correct answer 😁";
   } else {
     answerComment.textContent = "Wrong answer 😔";
@@ -131,7 +129,7 @@ nextBtn.addEventListener("click", function () {
   if (i === lyrics.length - 1) {
     nextBtn.textContent = "View Results 👀";
   }
-  // console.log("view");
+  console.log("view");
   if (i < lyrics.length) {
     lyric.textContent = lyrics[i].lyric;
     selectedAnswer = undefined;
@@ -156,7 +154,6 @@ restartBtn.addEventListener("click", function () {
   i = 0;
   scores = 0;
   totalScore.textContent = scores;
-  // console.log(scores);
   lyric.textContent = lyrics[i].lyric;
   selectedAnswer = undefined;
   answerGroup.classList.remove("hidden");
