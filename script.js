@@ -4,8 +4,10 @@ const totalScore = document.querySelector(".total-score");
 const lyric = document.querySelector(".lyric");
 const nextBtn = document.querySelector(".next-btn");
 const checkBtn = document.querySelector(".check-btn");
+const restartBtn = document.querySelector(".restart-btn");
 const answerBtns = document.querySelectorAll(".answer");
 const answerComment = document.querySelector(".comment");
+const answerGroup = document.querySelector("#answer-group");
 
 let lyrics = [
   {
@@ -85,36 +87,51 @@ let lyrics = [
   },
 ];
 
+// starting conditions
 let scores = 0;
-let i = 0;
+let i = 13;
 let selectedAnswer;
 lyric.textContent = lyrics[i].lyric;
 
 answerBtns.forEach((btn) => {
   btn.addEventListener("change", function () {
     selectedAnswer = btn.value;
-    console.log(selectedAnswer);
+    // console.log(selectedAnswer);
   });
 });
 
 checkBtn.addEventListener("click", function () {
+  // no answer selected
+  if (selectedAnswer === undefined) {
+    answerComment.textContent = "Please select an answer 🤨";
+    return;
+  }
+  // answer selected
   if (selectedAnswer === lyrics[i].album) {
     scores += 1;
     totalScore.textContent = scores;
-    console.log(scores);
-    answerComment.textContent = "correct answer";
+    // console.log(scores);
+    answerComment.textContent = "Correct answer 😁";
   } else {
-    answerComment.textContent = "wrong answer";
+    answerComment.textContent = "Wrong answer 😔";
   }
 
-  //   prevent answer changing
+  // prevent answer changing
   answerBtns.forEach((btn) => {
     btn.disabled = true;
+    answerGroup.classList.add("overlay");
   });
+  // shown next btn
+  checkBtn.classList.add("hidden");
+  nextBtn.classList.remove("hidden");
 });
 
 nextBtn.addEventListener("click", function () {
   i++;
+  if (i === lyrics.length - 1) {
+    nextBtn.textContent = "View Results 👀";
+  }
+  // console.log("view");
   if (i < lyrics.length) {
     lyric.textContent = lyrics[i].lyric;
     selectedAnswer = undefined;
@@ -123,8 +140,33 @@ nextBtn.addEventListener("click", function () {
       btn.checked = false;
       btn.disabled = false;
     });
+    checkBtn.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
+    answerGroup.classList.remove("overlay");
   } else {
-    lyric.textContent = "game over";
-    // create restart button add to HTML as well
+    lyric.textContent = "Game Over";
+    answerGroup.classList.add("hidden");
+    nextBtn.classList.add("hidden");
+    restartBtn.classList.remove("hidden");
+    answerComment.textContent = `Your total score was ${scores}/15`;
   }
+});
+
+restartBtn.addEventListener("click", function () {
+  i = 0;
+  scores = 0;
+  totalScore.textContent = scores;
+  // console.log(scores);
+  lyric.textContent = lyrics[i].lyric;
+  selectedAnswer = undefined;
+  answerGroup.classList.remove("hidden");
+  answerGroup.classList.remove("overlay");
+  checkBtn.classList.remove("hidden");
+  nextBtn.classList.add("hidden");
+  restartBtn.classList.add("hidden");
+  answerComment.textContent = "";
+  answerBtns.forEach((btn) => {
+    btn.checked = false;
+    btn.disabled = false;
+  });
 });
