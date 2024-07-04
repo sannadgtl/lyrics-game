@@ -35,7 +35,7 @@ h1 {
 }
 
 .answer {
-    margin-right: 0.5rem; 
+  margin-right: 0.5rem;
 }
 
 /* individual answer btns */
@@ -88,9 +88,10 @@ h1 {
 
 /* bottom btns */
 .check-btn,
-.next-btn {
+.next-btn,
+.restart-btn {
   padding: 1rem;
   border: 2px solid black;
   margin-inline: 0.5rem;
-  width: 12rem; 
+  width: 12rem;
 }
