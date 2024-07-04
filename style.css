@@ -91,7 +91,14 @@ h1 {
 .next-btn,
 .restart-btn {
   padding: 1rem;
-  border: 2px solid black;
   margin-inline: 0.5rem;
   width: 12rem;
+  background-color: black;
+  color: white;
+}
+
+.check-btn:hover,
+.next-btn:hover,
+.restart-btn:hover {
+  background-color: rgb(255, 218, 218);
 }

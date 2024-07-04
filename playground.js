@@ -87,6 +87,7 @@ let lyrics = [
   },
 ];
 
+// starting conditions
 let scores = 0;
 let i = 14;
 let selectedAnswer;
@@ -102,26 +103,26 @@ answerBtns.forEach((btn) => {
 checkBtn.addEventListener("click", function () {
   // no answer selected
   if (selectedAnswer === undefined) {
-    answerComment.textContent = "please select an answer";
+    answerComment.textContent = "Please select an answer 🤨";
     return;
   }
-  //   answer selected
+  // answer selected
   if (selectedAnswer === lyrics[i].album) {
     scores += 1;
     totalScore.textContent = scores;
     console.log(scores);
-    answerComment.textContent = "correct answer";
+    answerComment.textContent = "Correct answer 😁";
   } else {
-    answerComment.textContent = "wrong answer";
+    answerComment.textContent = "Wrong answer 😔";
   }
 
-  //   prevent answer changing
+  // prevent answer changing
   answerBtns.forEach((btn) => {
     btn.disabled = true;
   });
-  //   shown next btn
-  checkBtn.classList.toggle("hidden");
-  nextBtn.classList.toggle("hidden");
+  // shown next btn
+  checkBtn.classList.add("hidden");
+  nextBtn.classList.remove("hidden");
 });
 
 nextBtn.addEventListener("click", function () {
@@ -134,28 +135,31 @@ nextBtn.addEventListener("click", function () {
       btn.checked = false;
       btn.disabled = false;
     });
-    checkBtn.classList.toggle("hidden");
-    nextBtn.classList.toggle("hidden");
+    checkBtn.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
   } else {
     lyric.textContent = "game over";
-    answerGroup.classList.toggle("hidden");
-    restartBtn.classList.toggle("hidden");
-    nextBtn.classList.toggle("hidden");
+    answerGroup.classList.add("hidden");
+    nextBtn.classList.add("hidden");
+    restartBtn.classList.remove("hidden");
     answerComment.textContent = `Your total score was ${scores}/15`;
   }
 });
 
 restartBtn.addEventListener("click", function () {
-  answerGroup.classList.remove("hidden");
+  i = 14;
+  scores = 0;
+  totalScore.textContent = scores;
+  console.log(scores);
+  lyric.textContent = lyrics[i].lyric;
   selectedAnswer = undefined;
+  answerGroup.classList.remove("hidden");
+  checkBtn.classList.remove("hidden");
+  nextBtn.classList.add("hidden");
+  restartBtn.classList.add("hidden");
   answerComment.textContent = "";
   answerBtns.forEach((btn) => {
     btn.checked = false;
     btn.disabled = false;
   });
-  checkBtn.classList.remove("hidden");
-  nextBtn.classList.add("hidden");
-  restartBtn.classList.add("hidden");
-  i = 14;
-  lyric.textContent = lyrics[i].lyric;
 });
